@@ -1,0 +1,63 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} Contact Us - MyCart{% endblock %}
+{% block body %}
+<div>
+<div class="container my-3">
+    <h3>Help Center</h3>
+    <form action="/shop/contact/" method="post">{% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name"  required>
+  </div>
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email" required>
+  </div>
+
+    <div class="form-group">
+    <label for="name">Phone</label>
+    <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number" required>
+  </div>
+
+
+   <div class="form-group">
+    <label for="des">How May We Help You?</label>
+    <textarea class="form-control" id="des" name='des' rows="3"></textarea>
+  </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+
+<br>
+
+
+</div><CENTER><div class="col-md-6">
+<hr><h3 class="dark" style="background-color: #c6d9ec;">OUR HEADQUARTER LOCATION </h3></hr>
+</div> </CENTER>
+
+
+<div class="container">
+    <div class="col-cd-12">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13738.63372213738!2d76.69900595!3d30.587186400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fe99a1fa0665f%3A0xb3b245a73b32732!2sshaheed%20udham%20singh%20college%20ground!5e0!3m2!1sen!2sin!4v1574196443952!5m2!1sen!2sin" width="1110" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+
+
+</div>
+    </div>
+    </div>
+
+
+
+{% endblock%}
+{% block js %}
+<!--{% if thank %}-->
+<!--alert('Thanks for contacting us. We Will get back to you soon!');-->
+<!--document.location="/shop/contact";-->
+<!--{% endif %}-->
+{% if thank %}
+alert('Thanks for ordering with us. Your order id is Use it to track your order using our order tracker');
+localStorage.clear();
+document.location = "/shop";
+{% endif %}
+{% endblock %}
